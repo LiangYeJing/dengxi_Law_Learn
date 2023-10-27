@@ -41,7 +41,7 @@ pip install modelscope
 
 ```python
 from modelscope import snapshot_download
-model_dir = snapshot_download("ZhipuAI/chatglm3-6b", revision = "master")
+model_dir = snapshot_download("ZhipuAI/chatglm3-6b", revision = "v1.0.0")
 ```
 
 git下载
