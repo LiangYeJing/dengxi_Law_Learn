@@ -56,7 +56,7 @@ git clone https://www.modelscope.cn/ZhipuAI/chatglm3-6b.git
 
 ```python
 from modelscope import AutoTokenizer, AutoModel, snapshot_download
-model_dir = snapshot_download("ZhipuAI/chatglm3-6b", revision = "master")
+model_dir = snapshot_download("ZhipuAI/chatglm3-6b", revision = "v1.0.0")
 tokenizer = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
 model = AutoModel.from_pretrained(model_dir, trust_remote_code=True).half().cuda()
 model = model.eval()
