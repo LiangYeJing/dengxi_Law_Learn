@@ -30,7 +30,7 @@ ChatGLM3-6B 是 ChatGLM 系列最新一代的开源模型，在保留了前两�
 ## 软件依赖
 
 ```shell
-pip install protobuf transformers==4.30.2 cpm_kernels torch>=2.0 gradio mdtex2html sentencepiece accelerate
+pip install protobuf 'transformers>=4.30.2' cpm_kernels 'torch>=2.0' gradio mdtex2html sentencepiece accelerate
 ```
 
 ## 模型下载
