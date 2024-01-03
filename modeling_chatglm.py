@@ -1000,7 +1000,10 @@ class ChatGLMForConditionalGeneration(ChatGLMPreTrainedModel):
         content = ""
         history = deepcopy(history)
         for response in output.split("<|assistant|>"):
-            metadata, content = response.split("\n", maxsplit=1)
+            if "\n" in response:
+                metadata, content = response.split("\n", maxsplit=1)
+            else:
+                metadata, content = "", response
             if not metadata.strip():
                 content = content.strip()
                 history.append({"role": "assistant", "metadata": metadata, "content": content})
@@ -1018,7 +1021,7 @@ class ChatGLMForConditionalGeneration(ChatGLMPreTrainedModel):
         return content, history
 
     @torch.inference_mode()
-    def chat(self, tokenizer, query: str, history: List[Tuple[str, str]] = None, role: str = "user",
+    def chat(self, tokenizer, query: str, history: List[Dict] = None, role: str = "user",
              max_length: int = 8192, num_beams=1, do_sample=True, top_p=0.8, temperature=0.8, logits_processor=None,
              **kwargs):
         if history is None:
@@ -1040,7 +1043,7 @@ class ChatGLMForConditionalGeneration(ChatGLMPreTrainedModel):
         return response, history
 
     @torch.inference_mode()
-    def stream_chat(self, tokenizer, query: str, history: List[Tuple[str, str]] = None, role: str = "user",
+    def stream_chat(self, tokenizer, query: str, history: List[Dict] = None, role: str = "user",
                     past_key_values=None,max_length: int = 8192, do_sample=True, top_p=0.8, temperature=0.8,
                     logits_processor=None, return_past_key_values=False, **kwargs):
         if history is None:
