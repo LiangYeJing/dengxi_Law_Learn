@@ -70,8 +70,8 @@ print(response)
 
 For more instructions, including how to run CLI and web demos, and model quantization, please refer to our [Github Repo](https://github.com/THUDM/ChatGLM3).
 
-**即使您没有满足要求的 CUDA 设备，对于 Intel CPU 和 GPU 设备，也可以使用 [OpenVINO加速框架](https://github.com/OpenVINO-dev-contest/chatglm3.openvino) 使用 Intel GPU 或 CPU 或 集成显卡 加速部署ChatGLM3-6B模型**，
-我们也在[Github Repo](https://github.com/THUDM/ChatGLM3) 准备了demo。
+**即使您没有满足要求的 CUDA 设备，对于 Intel CPU 和 GPU 设备，也可以使用 [OpenVINO加速框架](https://github.com/openvinotoolkit) 使用 Intel GPU 或 CPU 或 集成显卡 加速部署ChatGLM3-6B模型**，
+我们也在[Github Repo](https://github.com/THUDM/ChatGLM3/blob/main/Intel_device_demo/openvino_demo/README.md) 准备了demo。
 ## 协议
 
 本仓库的代码依照 [Apache-2.0](LICENSE) 协议开源，ChatGLM3-6B 模型的权重的使用则需要遵循 [Model License](MODEL_LICENSE)。
