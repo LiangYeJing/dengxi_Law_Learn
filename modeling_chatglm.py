@@ -634,7 +634,8 @@ class GLMTransformer(torch.nn.Module):
                     attention_mask,
                     rotary_pos_emb,
                     kv_caches[index],
-                    use_cache
+                    use_cache,
+                    use_reentrant=False
                 )
             else:
                 layer_ret = layer(
@@ -697,9 +698,9 @@ class ChatGLMPreTrainedModel(PreTrainedModel):
         position_ids = torch.arange(seq_length, dtype=torch.long, device=device).unsqueeze(0).repeat(batch_size, 1)
         return position_ids
 
-    def _set_gradient_checkpointing(self, module, value=False):
-        if isinstance(module, GLMTransformer):
-            module.gradient_checkpointing = value
+    def gradient_checkpointing_enable(self, gradient_checkpointing_kwargs=None):
+        if not self.supports_gradient_checkpointing:
+            raise ValueError(f"{self.__class__.__name__} does not support gradient checkpointing.")
 
 
 class Embedding(torch.nn.Module):
@@ -767,6 +768,9 @@ class ChatGLMModel(ChatGLMPreTrainedModel):
 
     def get_input_embeddings(self):
         return self.embedding.word_embeddings
+
+    def set_input_embeddings(self, value):
+        self.embedding.word_embeddings = value
 
     def get_prompt(self, batch_size, device, dtype=torch.half):
         prefix_tokens = self.prefix_tokens.unsqueeze(0).expand(batch_size, -1).to(device)
