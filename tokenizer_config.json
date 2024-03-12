@@ -35,7 +35,7 @@
   },
   "auto_map": {
     "AutoTokenizer": [
-      "tokenization_chatglm.ChatGLMTokenizer",
+      "THUDM/chatglm3-6b--tokenization_chatglm.ChatGLMTokenizer",
       null
     ]
   },
