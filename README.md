@@ -94,6 +94,3 @@ ChatGLM3-6B model files can be downloaded from the ChatGLM3 GitHub repository, a
 privateGPT model files are available in the private-gpt GitHub repository.
 Refer to other materials\2403031-Central South Railway Guerrillas-[A29] AI Makes Life Easier-Data Sets\Private Knowledge Database for private database details. """
 Saving the content to a Markdown (.md) file
-file_path = "/mnt/data/README.md" with open(file_path, "w") as file: file.write(readme_content)
-
-file_path
