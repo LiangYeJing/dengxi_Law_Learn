@@ -1,31 +1,30 @@
-# Central South Railway Guerrillas
+# 邓析法学大模型服务端README
 
-## ChatLaw3 and privateGPT Deployment Guide
+此README提供了在阿里巴巴云ECS服务器和PAI DSW上部署和使用两个大型模型，ChatLaw3和privateGPT的指南。
 
-This guide provides detailed instructions for deploying and using the ChatLaw3 and privateGPT large models on Alibaba Cloud ECS servers and PAI DSW, tailored for enhancing security and functionality in intelligent home systems, particularly for single young female users.
+## 目录
 
-### Table of Contents
+- [ChatLaw3 部署](#chatlaw3-部署)
+  - [系统要求](#系统要求)
+  - [配置要求](#配置要求)
+  - [API 执行](#api-执行)
+- [privateGPT 部署](#privategpt-部署)
+  - [系统要求](#系统要求-1)
+  - [配置要求](#配置要求-1)
+  - [执行](#执行)
+- [重要提示](#重要提示)
 
-- [ChatLaw3 Deployment](#chatlaw3-deployment)
-  - [System Requirements](#system-requirements)
-  - [Configuration Requirements](#configuration-requirements)
-  - [API Execution](#api-execution)
-- [privateGPT Deployment](#privategpt-deployment)
-  - [System Requirements](#system-requirements-1)
-  - [Configuration Requirements](#configuration-requirements-1)
-  - [Execution](#execution)
-- [Important Notes](#important-notes)
+## ChatLaw3 部署
+  模型代码请见：https://github.com/THUDM/ChatGLM3
+  本模型文件即chatglm3-6b
+### 系统要求
 
-## ChatLaw3 Deployment
+- 操作系统：Linux
+- Python版本：3.7或更高
 
-### System Requirements
+### 配置要求
 
-- **Operating System:** Linux
-- **Python Version:** 3.7 or higher
-
-### Configuration Requirements
-
-Ensure the following Python packages are installed:
+需要以下Python包：
 
 - protobuf>=4.25.3
 - transformers>=4.38.1
@@ -53,20 +52,25 @@ Ensure the following Python packages are installed:
 - langchainhub>=0.1.14
 - arxiv>=2.1.0
 
-### API Execution
+### API 执行
 
-Execute the following command on your Alibaba Cloud ECS server to start the API server for ChatLaw3:
+在您的ECS服务器上执行以下命令以运行ChatLaw3的API服务器：
 
 ```bash
 $ python ChatLaw3/openai_api_demo/api_server.py
+```
 
-### privateGPT Deployment
+## privateGPT 部署
+  模型代码请见：https://github.com/zylon-ai/private-gpt
+  本模型文件请见：https://modelscope.cn/models/Fengshenbang/Ziya-LLaMA-13B-v1/summary
+### 系统要求
 
-System Requirements
-Operating System: Linux
-Python Version: 3.6 or higher
-Configuration Requirements
-Install the following packages:
+- 操作系统：Linux
+- Python版本：3.6或更高
+
+### 配置要求
+
+需要以下Python包：
 
 - langchain==0.0.274
 - gpt4all==1.0.8
@@ -83,14 +87,16 @@ Install the following packages:
 - tqdm==4.66.1
 - sentence_transformers==2.2.2
 
-Execution
-Run privateGPT on your system by executing:
-$ python privateGPT/privateGPT.py
+### 执行
 
-Important Notes
-Ensure all necessary packages are installed in your Python environment before running the models.
-Proper permissions and configurations must be set up on your Alibaba Cloud ECS server and PAI DSW for smooth execution.
-ChatGLM3-6B model files can be downloaded from the ChatGLM3 GitHub repository, and the tuned large language legal model files are located in the chatglm3-6b directory.
-privateGPT model files are available in the private-gpt GitHub repository.
-Refer to other materials\2403031-Central South Railway Guerrillas-[A29] AI Makes Life Easier-Data Sets\Private Knowledge Database for private database details. """
-Saving the content to a Markdown (.md) file
+在您的系统上执行以下命令以运行privateGPT：
+
+```bash
+$ python privateGPT/privateGPT.py
+```
+
+## 重要提示
+
+- 在运行模型前，请确保已在您的Python环境中安装了必要的包。
+- 确保在阿里巴巴云ECS服务器和PAI DSW上已设置好适当的权限和配置，以确保模型的顺利执行。
+
