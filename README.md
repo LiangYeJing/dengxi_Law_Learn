@@ -64,8 +64,11 @@ $ python ChatLaw3/openai_api_demo/api_server.py
 ```
 
 ## privateGPT 部署
+  
   模型代码请见：https://github.com/zylon-ai/private-gpt
+  
   本模型文件请见：https://modelscope.cn/models/Fengshenbang/Ziya-LLaMA-13B-v1/summary
+
 ### 系统要求
 
 - 操作系统：Linux
