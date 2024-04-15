@@ -15,8 +15,11 @@
 - [重要提示](#重要提示)
 
 ## ChatLaw3 部署
+  
   模型代码请见：https://github.com/THUDM/ChatGLM3
+  
   本模型文件即chatglm3-6b
+  
 ### 系统要求
 
 - 操作系统：Linux
